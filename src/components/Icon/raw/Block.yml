@@ -1,0 +1,15 @@
+name: Block
+set: document
+description: Used to represent blocks.
+keywords:
+  - block
+  - page
+  - editor
+  - document
+authors:
+  - Matthew Traul
+  - Max David
+version: 1
+date_added: 2022-10-11
+date_modified: 2022-10-11
+exclusive_use:

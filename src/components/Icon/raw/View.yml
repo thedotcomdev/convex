@@ -1,0 +1,29 @@
+name: View
+set: app
+description:
+  # Icon type   | Example description
+  # ----------- | --------------------------
+  # Action      | Used to denote <x action>.
+  # Wayfinding  | Used to help direct user to <x>.
+  # Concept     | Used to represent <x>.
+  # Education   | Used to give users more information about <context x>.
+  #
+  # (delete this comment block)
+  N/A
+keywords:
+  # - synonym
+  # - another synonym
+  # - related shape or symbol
+  # (delete this comment block)
+  - N/A
+authors:
+  # - Matthew Traul
+  # - Co-author’s name (optional)
+  # (delete this comment block)
+  - N/A
+version: 1
+date_added: 2022-10-11
+date_modified: 2022-10-11
+# Optional: fill exclusive_use if the icon should
+# *only* be used in specific areas of the app
+exclusive_use:
