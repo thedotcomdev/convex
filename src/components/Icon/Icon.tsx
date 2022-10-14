@@ -1,6 +1,7 @@
 import React from 'react';
 
 import { classNames } from '../../utils/css';
+import { ColorType } from '../Color';
 import { VisuallyHidden } from '../VisuallyHidden';
 
 import type { IconSource } from '../../types';
@@ -11,7 +12,7 @@ export interface IconProps {
   /** The SVG contents to display in the icon (icons should fit in a 16 × 16 pixel viewBox) */
   source: IconSource;
   /** Set the color for the SVG fill */
-  color?: string;
+  color?: ColorType | 'currentColor';
   /** 16px, 20px, 24px */
   size?: 'small' | 'medium' | 'large';
   /** Descriptive text to be read to screenreaders */
