@@ -76,5 +76,6 @@
     "forceConsistentCasingInFileNames": true /* Disallow inconsistently-cased references to the same file. */
   },
   "include": ["src/**/*", "config/**/*"],
-  "exclude": ["node_modules", "src/stories"]
+  "exclude": ["node_modules", "src/stories"],
+  "extends": "./config/typescript/tsconfig.paths.json"
 }

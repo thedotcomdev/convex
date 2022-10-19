@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@prism/*": ["./src/*"],
+      "@color": ["./src/components/Color"],
+      "@color/*": ["./src/components/Color/*"],
+      "@icons": ["./src/components/Icon"],
+      "@icons/*": ["./src/components/Icon/*"],
+      "@styles": ["./src/styles"],
+      "@styles/*": ["./src/styles/*"],
+      "@utils": ["./src/utils"],
+      "@utils/*": ["./src/utils/*"],
+      "@types": ["./src/types"]
+    }
+  }
+}
