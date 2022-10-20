@@ -9,7 +9,7 @@
     "rollup": "rollup -c",
     "test": "jest",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook",
+    "build-storybook": "build-storybook --output-dir build",
     "lint:styles": "stylelint '**/*.{css,scss}'",
     "generate-icons": "node scripts/generate-icon-packages.js",
     "generate-icon-metadata": "node scripts/generate-icon-metadata-templates.js"
