@@ -9,8 +9,20 @@ export {
 } from '../raw/Add.svg';
 
 export {
+  default as ArrowDown,
+} from '../raw/ArrowDown.svg';
+
+export {
+  default as ArrowLeft,
+} from '../raw/ArrowLeft.svg';
+
+export {
   default as ArrowRight,
 } from '../raw/ArrowRight.svg';
+
+export {
+  default as ArrowUp,
+} from '../raw/ArrowUp.svg';
 
 export {
   default as AutomatePage,
@@ -101,6 +113,10 @@ export {
 } from '../raw/Locked.svg';
 
 export {
+  default as Minus,
+} from '../raw/Minus.svg';
+
+export {
   default as More,
 } from '../raw/More.svg';
 
@@ -113,8 +129,20 @@ export {
 } from '../raw/Page.svg';
 
 export {
+  default as PanelLeft,
+} from '../raw/PanelLeft.svg';
+
+export {
+  default as PanelRight,
+} from '../raw/PanelRight.svg';
+
+export {
   default as Play,
 } from '../raw/Play.svg';
+
+export {
+  default as Plus,
+} from '../raw/Plus.svg';
 
 export {
   default as Refresh,
@@ -139,6 +167,10 @@ export {
 export {
   default as Unlocked,
 } from '../raw/Unlocked.svg';
+
+export {
+  default as Upload,
+} from '../raw/Upload.svg';
 
 export {
   default as UX,

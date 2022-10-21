@@ -1,0 +1,16 @@
+name: PanelLeft
+set: app
+description: Used to represent backwards navigation or leftwards movement.
+keywords:
+  - arrow
+  - panel
+  - left
+  - direction
+  - navigation
+authors:
+  - Matthew Traul
+  - Max David
+version: 1
+date_added: 2022-10-20
+date_modified: 2022-10-20
+exclusive_use:

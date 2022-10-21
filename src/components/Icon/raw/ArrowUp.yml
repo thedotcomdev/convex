@@ -1,0 +1,15 @@
+name: ArrowUp
+set: app
+description: Used to indicate upwards movement or focus.
+keywords:
+  - arrow
+  - up
+  - direction
+  - navigation
+authors:
+  - Matthew Traul
+  - Max David
+version: 1
+date_added: 2022-10-20
+date_modified: 2022-10-20
+exclusive_use:

@@ -1,0 +1,18 @@
+name: Plus
+set: app
+description: Used as an action to add something to another thing.
+keywords:
+  - add
+  - positive
+  - addition
+  - math
+  - '+'
+  - new
+  - more
+authors:
+  - Matthew Traul
+  - Max David
+version: 1
+date_added: 2022-10-20
+date_modified: 2022-10-20
+exclusive_use:
