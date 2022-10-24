@@ -7,11 +7,10 @@ keywords:
   - subtract
   - subtraction
   - math
-  - '-'
+  - "-"
   - less
 authors:
   - Matthew Traul
-  - Max David
 version: 1
 date_added: 2022-10-20
 date_modified: 2022-10-20

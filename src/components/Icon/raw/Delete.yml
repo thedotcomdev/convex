@@ -6,8 +6,7 @@ keywords:
 authors:
   - delete
   - remove
-  - trash
-version: 1
+  - trashversion: 1
 date_added: 2022-10-11
 date_modified: 2022-10-11
 exclusive_use:
