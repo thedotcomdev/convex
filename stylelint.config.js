@@ -6,6 +6,6 @@ module.exports = {
     'color-named': ['never', { severity: 'warning' }],
     'color-no-hex': [true, { severity: 'warning' }],
     'declaration-no-important': [true, { severity: 'warning' }],
-    'rule-empty-line-before': null,
-  },
+    'rule-empty-line-before': null
+  }
 };

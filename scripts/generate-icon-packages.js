@@ -2,6 +2,7 @@
 
 const fs = require('fs');
 const path = require('path');
+
 const glob = require('glob');
 const jsYaml = require('js-yaml');
 
@@ -54,7 +55,7 @@ Object.entries(allSvgExports).forEach(([packageName, exportStrings]) => {
   });
   fs.writeFileSync(
     setsFilePath(packageName),
-    `${allSetImportsString}\n\n${exportSetsStrings.join('\n')}`
+    `${preamble}\n\n${allSetImportsString}\n\n${exportSetsStrings.join('\n')}`
   );
   fs.writeFileSync(
     indexFilePath(packageName),

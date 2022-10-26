@@ -1,8 +1,10 @@
 import React from 'react';
 import { Story } from '@storybook/react';
+
+import { Color, ColorKey } from '../Color';
+
 import { Icon, IconProps, IconSource } from './Icon';
 import { AppIconSet, DocumentIconSet, BrandIconSet } from './icons';
-import { Color, ColorKey } from '../Color';
 
 /**
  * Helper component for displaying Icon sets in Storybook
@@ -16,7 +18,7 @@ const IconGroup = (args: IconProps & { icons: IconSource[] }) => {
       style={{
         display: 'grid',
         gap: '1rem',
-        gridTemplateColumns: 'repeat(auto-fit, 24px)',
+        gridTemplateColumns: 'repeat(auto-fit, 24px)'
       }}
     >
       {icons.map((icon, i) => (
@@ -32,17 +34,17 @@ export default {
   argTypes: {
     icons: {
       table: {
-        disable: true,
-      },
+        disable: true
+      }
     },
     color: {
       type: 'select',
-      options: ColorKey,
+      options: ColorKey
     },
     source: {
-      control: false,
-    },
-  },
+      control: false
+    }
+  }
 };
 
 const TemplateIconGroup: Story<IconProps & { icons: IconSource[] }> = (
@@ -51,29 +53,29 @@ const TemplateIconGroup: Story<IconProps & { icons: IconSource[] }> = (
 
 const defaultArgs: Partial<IconProps> = {
   color: Color.Default.Dark,
-  size: 'small',
+  size: 'small'
 };
 
 export const AllIcons = TemplateIconGroup.bind({});
 AllIcons.args = {
   ...defaultArgs,
-  icons: [...AppIconSet, ...DocumentIconSet, ...BrandIconSet],
+  icons: [...AppIconSet, ...DocumentIconSet, ...BrandIconSet]
 };
 
 export const App = TemplateIconGroup.bind({});
 App.args = {
   ...defaultArgs,
-  icons: AppIconSet,
+  icons: AppIconSet
 };
 
 export const Document = TemplateIconGroup.bind({});
 Document.args = {
   ...defaultArgs,
-  icons: DocumentIconSet,
+  icons: DocumentIconSet
 };
 
 export const Brand = TemplateIconGroup.bind({});
 Brand.args = {
   ...defaultArgs,
-  icons: BrandIconSet,
+  icons: BrandIconSet
 };

@@ -3,8 +3,8 @@ import React from 'react';
 import { classNames } from '../../utils/css';
 import { ColorType } from '../Color';
 import { VisuallyHidden } from '../VisuallyHidden';
-
 import type { IconSource } from '../../types';
+
 import { Tetra } from './icons';
 import './Icon.scss';
 
@@ -23,7 +23,7 @@ export const Icon = ({
   source = Tetra,
   color = 'currentColor',
   size = 'small',
-  accessibilityLabel,
+  accessibilityLabel
 }: IconProps) => {
   let sourceType: 'function' | 'placeholder' | 'external';
   if (typeof source === 'function') {
@@ -50,13 +50,13 @@ export const Icon = ({
         alt=''
         aria-hidden='true'
       />
-    ),
+    )
   };
 
   return (
     <span className={className} style={{ fill: color }}>
       <VisuallyHidden>{accessibilityLabel}</VisuallyHidden>
-      {contentMarkup['function']}
+      {contentMarkup.function}
     </span>
   );
 };

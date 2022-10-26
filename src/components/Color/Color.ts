@@ -1,7 +1,7 @@
 export const Color = {
   Default: {
     Dark: '#000000',
-    Light: '#FFFFFF',
+    Light: '#FFFFFF'
   },
   Gray: {
     10: '#f7f7f7',
@@ -13,7 +13,7 @@ export const Color = {
     70: '#575757',
     80: '#3d3d3d',
     90: '#303030',
-    100: '#262626',
+    100: '#262626'
   },
   Red: {
     10: '#fbe9e9',
@@ -25,14 +25,14 @@ export const Color = {
     70: '#ce1717',
     80: '#9c1616',
     90: '#711414',
-    100: '#4c1010',
+    100: '#4c1010'
   },
   Orange: {
     100: '#ff8150',
     200: '#ff8b23',
     300: '#ff4f00',
     350: '#ff4800',
-    400: '#7b2200',
+    400: '#7b2200'
   },
   Yellow: {
     10: '#fbf8e9',
@@ -44,7 +44,7 @@ export const Color = {
     70: '#ee9e2b',
     80: '#e58019',
     90: '#b75c1a',
-    100: '#8f4019',
+    100: '#8f4019'
   },
   Green: {
     10: '#cfe8d3',
@@ -56,7 +56,7 @@ export const Color = {
     70: '#206f3a',
     80: '#1b502d',
     90: '#153720',
-    100: '#0f2416',
+    100: '#0f2416'
   },
   Teal: {
     10: '#ebf9fa',
@@ -68,7 +68,7 @@ export const Color = {
     70: '#1d98c9',
     80: '#1b7098',
     90: '#174f6d',
-    100: '#123449',
+    100: '#123449'
   },
   Blue: {
     10: '#e8f2fc',
@@ -80,7 +80,7 @@ export const Color = {
     70: '#0647e0',
     80: '#0934a9',
     90: '#0a247b',
-    100: '#091853',
+    100: '#091853'
   },
   Purple: {
     10: '#ece8fc',
@@ -92,7 +92,7 @@ export const Color = {
     70: '#6806e0',
     80: '#5109a9',
     90: '#3d0a7b',
-    100: '#2a0953',
+    100: '#2a0953'
   },
   Pink: {
     10: '#f9ebf5',
@@ -104,7 +104,7 @@ export const Color = {
     70: '#d411c1',
     80: '#a9099f',
     90: '#7b0a77',
-    100: '#530953',
+    100: '#530953'
   },
   Indigray: {
     5: '#fffbfe',
@@ -117,8 +117,8 @@ export const Color = {
     70: '#625b71',
     80: '#4a4458',
     90: '#332d41',
-    100: '#1d192b',
-  },
+    100: '#1d192b'
+  }
 } as const;
 
 export const ColorKey = {
@@ -219,14 +219,14 @@ export const ColorKey = {
   Indigray70: Color.Indigray[70],
   Indigray80: Color.Indigray[80],
   Indigray90: Color.Indigray[90],
-  Indigray100: Color.Indigray[100],
+  Indigray100: Color.Indigray[100]
 } as const;
 
 type Color = Record<string, string>;
 type Palette = Record<string, Color>;
 type ColorRgb<C extends Color> = C[keyof C];
-type PaletteRgb<P extends Palette> = ColorRgb<
-  { [K in keyof P]: ColorRgb<P[K]> }
->;
+type PaletteRgb<P extends Palette> = ColorRgb<{
+  [K in keyof P]: ColorRgb<P[K]>;
+}>;
 
 export type ColorType = PaletteRgb<typeof Color>;
