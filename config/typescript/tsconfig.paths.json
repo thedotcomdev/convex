@@ -2,7 +2,7 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
-      "@prism/*": ["./src/*"],
+      "@convex/*": ["./src/*"],
       "@color": ["./src/components/Color"],
       "@color/*": ["./src/components/Color/*"],
       "@icons": ["./src/components/Icon"],

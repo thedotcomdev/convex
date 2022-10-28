@@ -76,7 +76,7 @@ function exportsForMetadata(filename) {
     fs.readFileSync(`${iconBasePath}/${filename}`, 'utf8')
   );
 
-  const packageName = 'prism-icons';
+  const packageName = 'convex-icons';
 
   let setsImportStrings = [];
 

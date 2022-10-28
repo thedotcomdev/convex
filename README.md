@@ -1,6 +1,6 @@
-# Prism
+# Convex
 
-[![storybook](https://shields.io/badge/storybook-white?logo=storybook&style=flat)](https://thecom.netlify.com) [![npm version](https://img.shields.io/npm/v/@the.com/prism.svg?label=@the.com/prism)](https://www.npmjs.com/package/@the.com/prism)
+[![storybook](https://shields.io/badge/storybook-white?logo=storybook&style=flat)](https://thecom.netlify.com) [![npm version](https://img.shields.io/npm/v/@the.com/convex.svg?label=@the.com/convex)](https://www.npmjs.com/package/@the.com/convex)
 
 > Design system and React components for [The.com light app](https://app.the.com).
 
@@ -11,7 +11,7 @@ Very much still a work in progress. Comments and feedback welcome.
 ### Icon
 
 ```sh
-prism
+convex
 └── src
     └── components
 	    └── Icon
