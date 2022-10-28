@@ -137,6 +137,10 @@ export {
 } from '../raw/PanelRight.svg';
 
 export {
+  default as Placeholder,
+} from '../raw/Placeholder.svg';
+
+export {
   default as Play,
 } from '../raw/Play.svg';
 

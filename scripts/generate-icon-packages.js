@@ -72,7 +72,7 @@ function setsFilePath() {
 }
 
 function exportsForMetadata(filename) {
-  const metadata = jsYaml.safeLoad(
+  const metadata = jsYaml.load(
     fs.readFileSync(`${iconBasePath}/${filename}`, 'utf8')
   );
 

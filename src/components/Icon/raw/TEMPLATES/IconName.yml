@@ -17,10 +17,11 @@ keywords:
   # (delete this comment block)
   - N/A
 authors:
-  # - Matthew Traul
+  # - Max David
   # - Co-author’s name (optional)
   # (delete this comment block)
-  - N/Aversion: 1
+  - N/A
+version: 1
 date_added: YYYY-MM-DD
 date_modified: YYYY-MM-DD
 # Optional: fill exclusive_use if the icon should

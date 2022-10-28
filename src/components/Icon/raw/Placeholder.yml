@@ -1,0 +1,14 @@
+name: Placeholder
+set: app
+description: Placeholder icon, used for default in Icon component.
+keywords:
+  - placeholder
+  - default
+  - meta
+  - xyzzy
+authors:
+  - Max David
+version: 1
+date_added: 2022-10-28
+date_modified: 2022-10-28
+exclusive_use: As icon placeholder.

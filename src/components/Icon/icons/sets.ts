@@ -1,3 +1,7 @@
+// DO NOT MANUALLY EDIT THIS FILE
+// This file was automatically generated
+// Run 'yarn run generate-icons' from the root of the monorepo to generate a new version
+
 import {
   default as Add,
 } from '../raw/Add.svg';
@@ -98,6 +102,9 @@ import {
   default as PanelRight,
 } from '../raw/PanelRight.svg';
 import {
+  default as Placeholder,
+} from '../raw/Placeholder.svg';
+import {
   default as Play,
 } from '../raw/Play.svg';
 import {
@@ -166,6 +173,7 @@ export const AppIconSet = [
   Open,
   PanelLeft,
   PanelRight,
+  Placeholder,
   Play,
   Plus,
   Refresh,

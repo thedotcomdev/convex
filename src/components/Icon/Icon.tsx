@@ -1,12 +1,12 @@
 import React from 'react';
 
+import type { IconSource } from '../../types';
 import { classNames } from '../../utils/css';
 import { ColorType } from '../Color';
 import { VisuallyHidden } from '../VisuallyHidden';
-import type { IconSource } from '../../types';
 
-import { Tetra } from './icons';
 import './Icon.scss';
+import { Placeholder } from './icons';
 
 export interface IconProps {
   /** The SVG contents to display in the icon (icons should fit in a 16 × 16 pixel viewBox) */
@@ -20,7 +20,7 @@ export interface IconProps {
 }
 
 export const Icon = ({
-  source = Tetra,
+  source = Placeholder,
   color = 'currentColor',
   size = 'small',
   accessibilityLabel
@@ -41,7 +41,11 @@ export const Icon = ({
       <SourceComponent className='svg' focusable='false' aria-hidden='true' />
     ),
     placeholder: (
-      <Tetra className='svg placeholder' focusable='false' aria-hidden='true' />
+      <Placeholder
+        className='svg placeholder'
+        focusable='false'
+        aria-hidden='true'
+      />
     ),
     external: (
       <img
