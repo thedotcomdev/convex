@@ -31,20 +31,32 @@ const allSvgExports = glob
 const allSetImports = glob
   .sync('*.yml', { cwd: iconBasePath })
   .reduce((memo, filename) => {
-    const { packageName, setsImportStrings } = exportsForMetadata(filename);
+    const { packageName, setsImportStrings, iconsByName, iconsByNameType } =
+      exportsForMetadata(filename);
 
     if (!memo[packageName]) {
       memo[packageName] = [];
     }
+    if (!memo.iconsByName) {
+      memo.iconsByName = [];
+    }
+    if (!memo.iconsByNameType) {
+      memo.iconsByNameType = [];
+    }
 
     memo[packageName].push(setsImportStrings);
+    memo.iconsByName.push(iconsByName);
+    memo.iconsByNameType.push(iconsByNameType);
 
     return memo;
   }, {});
 
 Object.entries(allSvgExports).forEach(([packageName, exportStrings]) => {
-  const allSvgExportsString = exportStrings.join('\n\n');
+  const allSvgExportsString = exportStrings.join('\n');
   const allSetImportsString = allSetImports[packageName].join('\n');
+  const allIconNameTypes = allSetImports.iconsByNameType.join('\n  | ');
+  const allIconNames = allSetImports.iconsByName.join('\n  ');
+
   let exportSetsStrings = [];
   Object.entries(IconSets[packageName]).forEach(([set, icons]) => {
     exportSetsStrings.push(
@@ -55,7 +67,9 @@ Object.entries(allSvgExports).forEach(([packageName, exportStrings]) => {
   });
   fs.writeFileSync(
     setsFilePath(packageName),
-    `${preamble}\n\n${allSetImportsString}\n\n${exportSetsStrings.join('\n')}`
+    `${preamble}\n\n${allSetImportsString}\n\n${exportSetsStrings.join(
+      '\n'
+    )}\n\nexport const IconsByName: IconNameType = {\n  ${allIconNames}\n}\n\nexport type IconName =\n  | ${allIconNameTypes};\n\ntype IconNameType = {\n  [key in IconName]?: any\n}\n`
   );
   fs.writeFileSync(
     indexFilePath(packageName),
@@ -80,31 +94,40 @@ function exportsForMetadata(filename) {
 
   let setsImportStrings = [];
 
-  const exportStrings = findAllPresentStyles(filename).reduce(
-    (memo, [exportName, exportFile, styleSuffix]) => {
-      if (!IconSets[packageName]) {
-        IconSets[packageName] = {};
-      }
-      if (!IconSets[packageName][metadata.set]) {
-        IconSets[packageName][metadata.set] = [];
-      }
-      if (IconSets[packageName][metadata.set].indexOf(exportName) === -1) {
-        IconSets[packageName][metadata.set].push(exportName);
-      }
-      setsImportStrings.push(setsImportString(exportName, exportFile));
-      return memo.concat(
+  const [exportStrings, iconsByName, iconsByNameType] = findAllPresentStyles(
+    filename
+  ).reduce((memo, [exportName, exportFile, styleSuffix]) => {
+    if (!IconSets[packageName]) {
+      IconSets[packageName] = {};
+    }
+    if (!IconSets[packageName][metadata.set]) {
+      IconSets[packageName][metadata.set] = [];
+    }
+    if (IconSets[packageName][metadata.set].indexOf(exportName) === -1) {
+      IconSets[packageName][metadata.set].push(exportName);
+    }
+    setsImportStrings.push(setsImportString(exportName, exportFile));
+    return [
+      memo.concat(
         [mainExportString(exportName, exportFile, metadata.deprecated)],
         (metadata.deprecated_aliases || [])
           .map((deprecatedAlias) => `${deprecatedAlias}${styleSuffix}`)
           .map((deprecatedBaseName) =>
             aliasExportString(exportName, exportFile, deprecatedBaseName)
           )
-      );
-    },
-    []
-  );
+      ),
+      memo.concat(`'${filenameToStringName(exportFile)}': ${exportName},`),
+      memo.concat(`'${filenameToStringName(filename)}'`)
+    ];
+  }, []);
 
-  return { packageName, exportStrings, setsImportStrings };
+  return {
+    packageName,
+    exportStrings,
+    setsImportStrings,
+    iconsByName,
+    iconsByNameType
+  };
 }
 
 function findAllPresentStyles(filename) {
@@ -149,6 +172,20 @@ function filenameToExportName(filename) {
   return exportName[0].toUpperCase() + exportName.slice(1).replace('_', '');
 }
 
+function filenameToStringName(filename) {
+  const name = filenameToExportName(filename);
+  const stringName =
+    name[0].toLowerCase() +
+    name
+      .slice(1)
+      .replace(
+        /(^|[a-zA-Z])([A-Z])/g,
+        (match, beforeLetter, afterLetter) =>
+          `${beforeLetter}-${afterLetter.toLowerCase()}`
+      );
+  return stringName;
+}
+
 /**
  *
  * @param {*} exportedName
@@ -165,13 +202,9 @@ function exportString(exportedName, filename, replaceWith) {
       ? ''
       : `/** @deprecated ${exportedName} will be removed in the next major version.${replaceWithSuffix} */\n`;
 
-  return `${deprecatedNotice}export {
-  default as ${exportedName},
-} from '../raw/${filename}';`;
+  return `${deprecatedNotice}export { default as ${exportedName} } from '../raw/${filename}';`;
 }
 
 function setsImportString(exportedName, filename) {
-  return `import {
-  default as ${exportedName},
-} from '../raw/${filename}';`;
+  return `import { default as ${exportedName} } from '../raw/${filename}';`;
 }

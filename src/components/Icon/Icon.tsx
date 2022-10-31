@@ -6,11 +6,11 @@ import { ColorType } from '../Color';
 import { VisuallyHidden } from '../VisuallyHidden';
 
 import './Icon.scss';
-import { Placeholder } from './icons';
+import { IconName, IconsByName, Placeholder } from './icons';
 
 export interface IconProps {
   /** The SVG contents to display in the icon (icons should fit in a 16 × 16 pixel viewBox) */
-  source: IconSource;
+  source?: IconSource | IconName;
   /** Set the color for the SVG fill */
   color?: ColorType | 'currentColor';
   /** 16px, 20px, 24px */
@@ -25,44 +25,21 @@ export const Icon = ({
   size = 'small',
   accessibilityLabel
 }: IconProps) => {
-  let sourceType: 'function' | 'placeholder' | 'external';
+  let SourceComponent = Placeholder;
   if (typeof source === 'function') {
-    sourceType = 'function';
-  } else if (source === 'placeholder') {
-    sourceType = 'placeholder';
-  } else {
-    sourceType = 'external';
+    SourceComponent = source;
+  } else if (typeof source === 'string') {
+    SourceComponent = IconsByName[source];
   }
-  const SourceComponent = source;
   const className = classNames('icon', size);
-
-  const contentMarkup = {
-    function: (
-      <SourceComponent className='svg' focusable='false' aria-hidden='true' />
-    ),
-    placeholder: (
-      <Placeholder
-        className='svg placeholder'
-        focusable='false'
-        aria-hidden='true'
-      />
-    ),
-    external: (
-      <img
-        className='img'
-        src={`data:image/svg+xml;utf8,${source}`}
-        alt=''
-        aria-hidden='true'
-      />
-    )
-  };
 
   return (
     <span className={className} style={{ fill: color }}>
       <VisuallyHidden>{accessibilityLabel}</VisuallyHidden>
-      {contentMarkup.function}
+      <SourceComponent className='svg' focusable='false' aria-hidden='true' />
     </span>
   );
 };
 
 export type { IconSource } from '../../types';
+export type { IconName, IconsByName } from './icons';
