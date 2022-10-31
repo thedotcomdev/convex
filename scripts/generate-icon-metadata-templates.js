@@ -2,15 +2,27 @@
 
 const fs = require('fs');
 const path = require('path');
+
 const glob = require('glob');
 const YAML = require('yaml');
 
 const iconBasePath = path.resolve(__dirname, '../src/components/Icon/raw');
 
+const iconNames = {};
+
 const allSvgExports = glob
   .sync('*.svg', { cwd: iconBasePath })
   .map((filename) => {
-    return filenameToExportName(filename);
+    const newName = filenameToExportName(filename);
+    iconNames[newName] = filename.replace('.svg', '');
+    fs.rename(
+      `${iconBasePath}/${filename}`,
+      `${iconBasePath}/${newName}.svg`,
+      (err) => {
+        if (err) throw err;
+      }
+    );
+    return newName;
   }, {});
 
 const allExistingYamlFiles = glob
@@ -29,9 +41,7 @@ allMissingYamlFiles.forEach((name) => {
     `${iconBasePath}/${filename}`,
     String(fillMetadataTemplate(name)),
     (err) => {
-      if (err) {
-        console.log(err);
-      }
+      if (err) throw err;
     }
   );
 });
@@ -41,7 +51,7 @@ function fillMetadataTemplate(name) {
     fs.readFileSync(`${iconBasePath}/TEMPLATES/IconName.yml`, 'utf8')
   );
   const date = getCurrentDateString();
-  metadata.set('name', name);
+  metadata.set('name', iconNames[name]);
   metadata.set('set', 'app');
   metadata.set('date_added', date);
   metadata.set('date_modified', date);
@@ -66,5 +76,7 @@ function getCurrentDateString() {
 function filenameToExportName(filename) {
   return path
     .basename(filename, path.extname(filename))
-    .replace(/(?:^|[-_])([a-z])/g, (match, letter) => letter.toUpperCase());
+    .replace(/(?:^|[-_\s])([a-zA-Z])/g, (match, letter) =>
+      letter.toUpperCase()
+    );
 }

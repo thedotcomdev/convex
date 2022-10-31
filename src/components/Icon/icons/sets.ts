@@ -18,11 +18,11 @@ import {
   default as ArrowUp,
 } from '../raw/ArrowUp.svg';
 import {
-  default as AutomatePage,
-} from '../raw/Automate Page.svg';
-import {
   default as Automate,
 } from '../raw/Automate.svg';
+import {
+  default as AutomatePage,
+} from '../raw/AutomatePage.svg';
 import {
   default as Block,
 } from '../raw/Block.svg';
@@ -58,7 +58,7 @@ import {
 } from '../raw/Close.svg';
 import {
   default as DefaultSheets,
-} from '../raw/Default Sheets.svg';
+} from '../raw/DefaultSheets.svg';
 import {
   default as Delete,
 } from '../raw/Delete.svg';
@@ -70,7 +70,7 @@ import {
 } from '../raw/Edit.svg';
 import {
   default as FontSheet,
-} from '../raw/Font Sheet.svg';
+} from '../raw/FontSheet.svg';
 import {
   default as Home,
 } from '../raw/Home.svg';
@@ -132,11 +132,11 @@ import {
   default as Upload,
 } from '../raw/Upload.svg';
 import {
-  default as UX,
-} from '../raw/UX.svg';
+  default as Ux,
+} from '../raw/Ux.svg';
 import {
   default as VersionHistory,
-} from '../raw/Version History.svg';
+} from '../raw/VersionHistory.svg';
 import {
   default as View,
 } from '../raw/View.svg';
@@ -181,7 +181,7 @@ export const AppIconSet = [
   Search,
   Unlocked,
   Upload,
-  UX,
+  Ux,
   VersionHistory,
   View,
   ViewOff

@@ -25,12 +25,12 @@ export {
 } from '../raw/ArrowUp.svg';
 
 export {
-  default as AutomatePage,
-} from '../raw/Automate Page.svg';
-
-export {
   default as Automate,
 } from '../raw/Automate.svg';
+
+export {
+  default as AutomatePage,
+} from '../raw/AutomatePage.svg';
 
 export {
   default as Block,
@@ -78,7 +78,7 @@ export {
 
 export {
   default as DefaultSheets,
-} from '../raw/Default Sheets.svg';
+} from '../raw/DefaultSheets.svg';
 
 export {
   default as Delete,
@@ -94,7 +94,7 @@ export {
 
 export {
   default as FontSheet,
-} from '../raw/Font Sheet.svg';
+} from '../raw/FontSheet.svg';
 
 export {
   default as Home,
@@ -177,12 +177,12 @@ export {
 } from '../raw/Upload.svg';
 
 export {
-  default as UX,
-} from '../raw/UX.svg';
+  default as Ux,
+} from '../raw/Ux.svg';
 
 export {
   default as VersionHistory,
-} from '../raw/Version History.svg';
+} from '../raw/VersionHistory.svg';
 
 export {
   default as View,
