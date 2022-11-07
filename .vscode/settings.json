@@ -1,0 +1,17 @@
+{
+  "editor.codeActionsOnSave": {
+    "source.fixAll": true,
+    "source.fixAll.eslint": true,
+    "source.organizeImports": true
+  },
+  "eslint.rules.customizations": [
+    { "rule": "*", "severity": "warn" },
+    { "rule": "*prettier*", "severity": "off" },
+    { "rule": "comma-dangle", "severity": "off" },
+    { "rule": "unused-imports/no-unused-imports", "severity": "off" },
+    { "rule": "unused-imports/no-unused-vars", "severity": "off" }
+  ],
+  "eslint.nodePath": "",
+  "eslint.enable": true,
+  "eslint.format.enable": true
+}

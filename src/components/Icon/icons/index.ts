@@ -2,8 +2,6 @@
 // This file was automatically generated
 // Run 'yarn run generate-icons' from the root of the monorepo to generate a new version
 
-export * from './sets';
-
 export { default as Add } from '../raw/Add.svg';
 export { default as ArrowDown } from '../raw/ArrowDown.svg';
 export { default as ArrowLeft } from '../raw/ArrowLeft.svg';
@@ -51,4 +49,6 @@ export { default as Ux } from '../raw/Ux.svg';
 export { default as VersionHistory } from '../raw/VersionHistory.svg';
 export { default as View } from '../raw/View.svg';
 export { default as ViewOff } from '../raw/ViewOff.svg';
+export * from './sets';
+
 
